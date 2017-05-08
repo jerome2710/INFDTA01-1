@@ -36,10 +36,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\Import.cs" />
     <Compile Include="Helpers\Log.cs" />
+    <Compile Include="Strategy\SimilarityInterface.cs" />
+    <Compile Include="Strategy\Similarity\PearsonSimilarity.cs" />
+    <Compile Include="Strategy\Similarity\CosineSimilarity.cs" />
+    <Compile Include="Context.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Strategy\" />
+    <Folder Include="Strategy\Similarity\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\userItem.data">
