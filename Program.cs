@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using INFDTA01_1.Helper;
 using INFDTA01_1.Strategy.Similarity;
 
 namespace INFDTA01_1
@@ -7,6 +8,7 @@ namespace INFDTA01_1
 	class MainClass
 	{
 		public const string ImportFilePath = "Assets/userItem.data";
+		public const int targetUserId = 7;
 
 		/// <summary>
 		/// The entry point of the program, where the program control starts and ends.
@@ -15,17 +17,23 @@ namespace INFDTA01_1
 		public static void Main(string[] args)
 		{
 			Context context;
-			Dictionary<int, Dictionary<int, float>> userItems;
+			SortedDictionary<int, SortedDictionary<int, float>> userItems;
+			SortedDictionary<int, double> results;
 
 			// import the dataset
 			userItems = Import.DoImport();
 
+			// pop our target user
+			SortedDictionary<int, float> targetUser;
+			userItems.TryGetValue(targetUserId, out targetUser);
+			userItems.Remove(targetUserId);
+
 			// @TODO: do some magic here
 			context = new Context(new PearsonSimilarity());
-			context.compute();
+			results = context.compute(targetUser, userItems);
 
 			// log the result
-			Log.DoLog(userItems);
+			Log.DoLog(results);
 		}
 	}
 }

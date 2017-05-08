@@ -40,6 +40,7 @@
     <Compile Include="Strategy\Similarity\PearsonSimilarity.cs" />
     <Compile Include="Strategy\Similarity\CosineSimilarity.cs" />
     <Compile Include="Context.cs" />
+    <Compile Include="Helpers\Normalizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />

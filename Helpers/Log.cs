@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace INFDTA01_1
+namespace INFDTA01_1.Helper
 {
 	public static class Log
 	{
@@ -9,16 +9,11 @@ namespace INFDTA01_1
 		/// Logs the result.
 		/// </summary>
 		/// <param name="resultSet">Result set.</param>
-		public static void DoLog(Dictionary<int, Dictionary<int, float>> resultSet)
+		public static void DoLog(SortedDictionary<int, double> resultSet)
 		{
 			foreach (var result in resultSet)
 			{
-				Console.WriteLine("\t Logging result for: " + result.Key);
-
-				foreach (var value in result.Value)
-				{
-					Console.WriteLine("\t" + value);
-				}
+				Console.WriteLine("\t User-id " + result.Key + ": " + result.Value);
 			}
 		}
 	}

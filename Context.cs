@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using INFDTA01_1.Strategy;
 
 namespace INFDTA01_1
@@ -21,9 +22,9 @@ namespace INFDTA01_1
 		/// <summary>
 		/// Compute the similarity using the interface.
 		/// </summary>
-		public void compute()
+		public SortedDictionary<int, double> compute(SortedDictionary<int, float> targetUser, SortedDictionary<int, SortedDictionary<int, float>> userItems)
 		{
-			this._similarityInterface.compute();
+            return this._similarityInterface.compute(targetUser, userItems);
 		}
 	}
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace INFDTA01_1
+namespace INFDTA01_1.Helper
 {
 	public static class Import
 	{
@@ -10,11 +10,12 @@ namespace INFDTA01_1
 		/// Import the data from the given file path and put in a Dictionary.
 		/// </summary>
 		/// <returns>The data as a Dictionary.</returns>
-		public static Dictionary<int, Dictionary<int, float>> DoImport()
+		///
+		public static SortedDictionary<int, SortedDictionary<int, float>> DoImport()
 		{
 			System.Console.WriteLine("Importing data-set...");
 
-			Dictionary<int, Dictionary<int, float>> userItems = new Dictionary<int, Dictionary<int, float>>();
+			var userItems = new SortedDictionary<int, SortedDictionary<int, float>>();
 
 			string[] lines = System.IO.File.ReadAllLines(ImportFilePath);
 			foreach (string line in lines) {
@@ -25,7 +26,7 @@ namespace INFDTA01_1
 				float score = float.Parse(lineValues[2]);
 
 				if (!userItems.ContainsKey(userId)) {
-					userItems.Add(userId, new Dictionary<int, float>());
+					userItems.Add(userId, new SortedDictionary<int, float>());
 				}
 
 				userItems[userId][productId] = score;
