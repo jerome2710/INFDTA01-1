@@ -16,12 +16,8 @@ namespace INFDTA01_1
 		/// <param name="args">The command-line arguments.</param>
 		public static void Main(string[] args)
 		{
-			Context context;
-			SortedDictionary<int, SortedDictionary<int, float>> userItems;
-			SortedDictionary<int, double> results;
-
 			// import the dataset
-			userItems = Import.DoImport();
+			var userItems = Import.DoImport();
 
 			// pop our target user
 			SortedDictionary<int, float> targetUser;
@@ -29,8 +25,8 @@ namespace INFDTA01_1
 			userItems.Remove(targetUserId);
 
 			// @TODO: do some magic here
-			context = new Context(new PearsonSimilarity());
-			results = context.compute(targetUser, userItems);
+			var context = new Context(new PearsonSimilarity());
+			var results = context.compute(targetUser, userItems);
 
 			// log the result
 			Log.DoLog(results);
