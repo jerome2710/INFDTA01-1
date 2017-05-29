@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using INFDTA01_1.Helper;
 using INFDTA01_1.Strategy;
@@ -6,13 +7,13 @@ using INFDTA01_1.Strategy.Similarity;
 
 namespace INFDTA01_1.Assignment.PartOne
 {
-	public static class AssignmentThree
+	public static class AssignmentFour
 	{
-        public const string importFilePath = "Assets/userItem.data";
-		public const int targetUserId = 7;
+		public const string importFilePath = "Assets/userItem.data";
+		public const int targetUserId = 4;
 		public const double similarityThreshold = 0.35d;
 		public const int nearestNeighboursLimit = 3;
-        public static readonly int[] predictedRatingItems = { 101, 103, 106 };
+		public static readonly int[] predictedRatingItems = { 101 };
 
 		public static void Run()
 		{
@@ -24,20 +25,20 @@ namespace INFDTA01_1.Assignment.PartOne
 			userItems.Remove(targetUserId);
 
 			// compute similarities
-            var context = new Context(new PearsonSimilarity());
+			var context = new Context(new PearsonSimilarity());
 			var similarities = context.Compute(userItems, targetUser);
 
 			// nearest neighbours
 			var nearestNeighbours = NearestNeighbours.Compute(similarities, similarityThreshold, nearestNeighboursLimit);
 
-            // predicted item ratings
-            var predictedRatings = new SortedDictionary<int, double>();
-            foreach (var predictedRatingItem in predictedRatingItems)
-            {
-                predictedRatings.Add(predictedRatingItem, PredictedRating.Compute(userItems, similarities, nearestNeighbours, predictedRatingItem));
-            }
+			// predicted item ratings
+			var predictedRatings = new SortedDictionary<int, double>();
+			foreach (var predictedRatingItem in predictedRatingItems)
+			{
+				predictedRatings.Add(predictedRatingItem, PredictedRating.Compute(userItems, similarities, nearestNeighbours, predictedRatingItem));
+			}
 
-            Asserter.AssignmentThree(predictedRatings);
+			Asserter.AssignmentFour(predictedRatings);
 		}
 	}
 }

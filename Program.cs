@@ -1,10 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using INFDTA01_1.Helper;
-using INFDTA01_1.Strategy.Similarity;
-
-namespace INFDTA01_1
+﻿namespace INFDTA01_1
 {
 	class MainClass
 	{
@@ -14,6 +8,9 @@ namespace INFDTA01_1
             Assignment.PartOne.AssignmentOne.Run();
             Assignment.PartOne.AssignmentTwo.Run();
             Assignment.PartOne.AssignmentThree.Run();
+            Assignment.PartOne.AssignmentFour.Run();
+            Assignment.PartOne.AssignmentFive.Run();
+            Assignment.PartOne.AssignmentSix.Run();
 		}
 	}
 }

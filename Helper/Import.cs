@@ -5,18 +5,16 @@ namespace INFDTA01_1.Helper
 {
 	public static class Import
 	{
-		public const string ImportFilePath = "Assets/userItem.data";
-
 		/// <summary>
 		/// Import the data from the given file path and put in a Dictionary.
 		/// </summary>
 		/// <returns>The data as a Dictionary.</returns>
 		///
-		public static SortedDictionary<int, SortedDictionary<int, double>> DoImport()
+		public static SortedDictionary<int, SortedDictionary<int, double>> DoImport(string filePath)
 		{
 			var userItems = new SortedDictionary<int, SortedDictionary<int, double>>();
 
-			var lines = System.IO.File.ReadAllLines(ImportFilePath);
+            var lines = System.IO.File.ReadAllLines(filePath);
 			foreach (string line in lines) {
 
 				var lineValues = line.Split(',');

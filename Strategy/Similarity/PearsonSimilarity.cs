@@ -19,6 +19,10 @@ namespace INFDTA01_1.Strategy.Similarity
 			{
                 var corratedRatings = Normalizer.GetCorratedRatings(targetUser, userItem.Value);
 
+                if (corratedRatings.Count() == 0) {
+                    continue;
+                }
+
 				var userAverage = corratedRatings.Values.Average();
 
 				// source: http://stackoverflow.com/a/17447920/1765404

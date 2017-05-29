@@ -49,6 +49,9 @@
     <Compile Include="Assignment\PartOne\Asserter.cs" />
     <Compile Include="Assignment\PartOne\AssignmentTwo.cs" />
     <Compile Include="Assignment\PartOne\AssignmentThree.cs" />
+    <Compile Include="Assignment\PartOne\AssignmentFour.cs" />
+    <Compile Include="Assignment\PartOne\AssignmentFive.cs" />
+    <Compile Include="Assignment\PartOne\AssignmentSix.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
@@ -60,6 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\userItem.data">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\movielens.data">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

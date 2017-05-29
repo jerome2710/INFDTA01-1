@@ -22,8 +22,6 @@ namespace INFDTA01_1.Assignment.PartOne
         {
             similarities.TryGetValue(4, out double answer);
 
-            similarities.ToList().ForEach(x => Console.WriteLine(x));
-
             if (answer != 1.0)
             {
                 Fail("Assignment 1: failed!");
@@ -57,9 +55,6 @@ namespace INFDTA01_1.Assignment.PartOne
                     break;
             }
 
-            //answer.ToList().ForEach(x => Console.WriteLine(x));
-            //similarities.ToList().ForEach(x => Console.WriteLine(x));
-
             if (
                 similarities.Keys.Count == answer.Keys.Count &&
                 similarities.Keys.All(k => answer.ContainsKey(k) && answer[k].ToString() == similarities[k].ToString())
@@ -92,5 +87,42 @@ namespace INFDTA01_1.Assignment.PartOne
                 Fail("Assignment 3: failed!");
             }
         }
+
+        public static void AssignmentFour(SortedDictionary<int, double> predictedRatings)
+		{
+			var answer = new SortedDictionary<int, double>();
+			answer.Add(101, 2.63284325835078);
+
+			if (
+				predictedRatings.Keys.Count == answer.Keys.Count &&
+				predictedRatings.Keys.All(k => answer.ContainsKey(k) && answer[k].ToString() == predictedRatings[k].ToString())
+			)
+			{
+				Pass("Assignment 4: success!");
+			}
+			else
+			{
+				Fail("Assignment 4: failed!");
+			}
+		}
+
+		public static void AssignmentFive(SortedDictionary<int, double> predictedRatings)
+		{
+			var answer = new SortedDictionary<int, double>();
+			answer.Add(101, 2.757178);
+            answer.Add(103, 2.676184);
+
+			if (
+				predictedRatings.Keys.Count == answer.Keys.Count &&
+				predictedRatings.Keys.All(k => answer.ContainsKey(k) && answer[k].ToString() == predictedRatings[k].ToString())
+			)
+			{
+				Pass("Assignment 5: success!");
+			}
+			else
+			{
+				Fail("Assignment 5: failed!");
+			}
+		}
     }
 }

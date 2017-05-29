@@ -8,7 +8,7 @@ namespace INFDTA01_1.Assignment.PartOne
 {
 	public static class AssignmentTwo
 	{
-        public const string ImportFilePath = "Assets/userItem.data";
+        public const string importFilePath = "Assets/userItem.data";
 		public const int targetUserId = 7;
         public const double similarityThreshold = 0.35d;
 		public const int nearestNeighboursLimit = 3;
@@ -16,7 +16,7 @@ namespace INFDTA01_1.Assignment.PartOne
 		public static void Run()
 		{
 			// import the dataset
-			var userItems = Import.DoImport();
+            var userItems = Import.DoImport(importFilePath);
 
 			// pop our target user
 			userItems.TryGetValue(targetUserId, out SortedDictionary<int, double> targetUser);
