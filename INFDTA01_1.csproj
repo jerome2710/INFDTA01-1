@@ -34,21 +34,21 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Helpers\Import.cs" />
-    <Compile Include="Helpers\Log.cs" />
+    <Compile Include="Helper\Import.cs" />
+    <Compile Include="Helper\Log.cs" />
     <Compile Include="Strategy\SimilarityInterface.cs" />
     <Compile Include="Strategy\Similarity\PearsonSimilarity.cs" />
     <Compile Include="Strategy\Similarity\CosineSimilarity.cs" />
     <Compile Include="Context.cs" />
-    <Compile Include="Helpers\Normalizer.cs" />
+    <Compile Include="Helper\Normalizer.cs" />
     <Compile Include="Strategy\Similarity\ManhattanSimilarity.cs" />
     <Compile Include="Strategy\Similarity\EuclideanSimilarity.cs" />
-    <Compile Include="Helpers\NearestNeighbours.cs" />
-    <Compile Include="Helpers\PredictedRating.cs" />
+    <Compile Include="Helper\NearestNeighbours.cs" />
+    <Compile Include="Helper\PredictedRating.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
-    <Folder Include="Helpers\" />
+    <Folder Include="Helper\" />
     <Folder Include="Strategy\" />
     <Folder Include="Strategy\Similarity\" />
   </ItemGroup>
