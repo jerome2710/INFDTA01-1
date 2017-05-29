@@ -10,25 +10,22 @@ namespace INFDTA01_1.Strategy.Similarity
 		public PearsonSimilarity()
 		{}
 
-		public SortedDictionary<int, double> Compute(SortedDictionary<int, float> targetUser, SortedDictionary<int, SortedDictionary<int, float>> userItems)
+		public SortedDictionary<int, double> Compute(SortedDictionary<int, double> targetUser, SortedDictionary<int, SortedDictionary<int, double>> userItems)
 		{
-			// make sure all users have ranked the same products
-			Normalizer normalizer = new Normalizer();
-			userItems = normalizer.equalize(targetUser, userItems);
-
 			var results = new SortedDictionary<int, double>();
-
 			var targetUserAvg = targetUser.Values.Average();
 
 			foreach (var userItem in userItems)
 			{
-				var userAverage = userItem.Value.Values.Average();
+                var corratedRatings = Normalizer.GetCorratedRatings(targetUser, userItem.Value);
+
+				var userAverage = corratedRatings.Values.Average();
 
 				// source: http://stackoverflow.com/a/17447920/1765404
-				var sum1 = targetUser.Values.Zip(userItem.Value.Values, (x1, y1) => (x1 - targetUserAvg) * (y1 - userAverage)).Sum();
+				var sum1 = targetUser.Values.Zip(corratedRatings.Values, (x1, y1) => (x1 - targetUserAvg) * (y1 - userAverage)).Sum();
 
 				var sumSqr1 = targetUser.Values.Sum(x => Math.Pow((x - targetUserAvg), 2.0));
-				var sumSqr2 = userItem.Value.Values.Sum(y => Math.Pow((y - userAverage), 2.0));
+				var sumSqr2 = corratedRatings.Values.Sum(y => Math.Pow((y - userAverage), 2.0));
 
 				var result = sum1 / Math.Sqrt(sumSqr1 * sumSqr2);
 

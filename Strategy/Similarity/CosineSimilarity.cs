@@ -8,7 +8,7 @@ namespace INFDTA01_1.Strategy.Similarity
 		public CosineSimilarity()
 		{}
 
-		public SortedDictionary<int, double> Compute(SortedDictionary<int, float> targetUser, SortedDictionary<int, SortedDictionary<int, float>> userItems)
+		public SortedDictionary<int, double> Compute(SortedDictionary<int, double> targetUser, SortedDictionary<int, SortedDictionary<int, double>> userItems)
 		{
 			throw new NotImplementedException();
 		}

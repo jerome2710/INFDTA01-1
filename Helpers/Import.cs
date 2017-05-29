@@ -11,11 +11,11 @@ namespace INFDTA01_1.Helper
 		/// </summary>
 		/// <returns>The data as a Dictionary.</returns>
 		///
-		public static SortedDictionary<int, SortedDictionary<int, float>> DoImport()
+		public static SortedDictionary<int, SortedDictionary<int, double>> DoImport()
 		{
 			System.Console.WriteLine("Importing data-set...");
 
-			var userItems = new SortedDictionary<int, SortedDictionary<int, float>>();
+			var userItems = new SortedDictionary<int, SortedDictionary<int, double>>();
 
 			var lines = System.IO.File.ReadAllLines(ImportFilePath);
 			foreach (string line in lines) {
@@ -23,10 +23,10 @@ namespace INFDTA01_1.Helper
 				var lineValues = line.Split(',');
 				var userId = int.Parse(lineValues[0]);
 				var productId = int.Parse(lineValues[1]);
-				var score = float.Parse(lineValues[2]);
+				var score = double.Parse(lineValues[2]);
 
 				if (!userItems.ContainsKey(userId)) {
-					userItems.Add(userId, new SortedDictionary<int, float>());
+					userItems.Add(userId, new SortedDictionary<int, double>());
 				}
 
 				userItems[userId][productId] = score;

@@ -7,7 +7,7 @@ namespace INFDTA01_1.Helper
     public static class PredictedRating
     {
         public static double Compute(
-            SortedDictionary<int, SortedDictionary<int, float>> userItems,
+            SortedDictionary<int, SortedDictionary<int, double>> userItems,
             SortedDictionary<int, double> similarities,
             Dictionary<int, double> nearestNeighbours,
             int predictedRatingItem

@@ -9,12 +9,11 @@ namespace INFDTA01_1
 	class MainClass
 	{
 		public const string ImportFilePath = "Assets/userItem.data";
-		public const int targetUserId = 7;
+		public const int targetUserId = 4;
         public const float similarityThreshold = 0.35f;
         public const int nearestNeighboursLimit = 3;
-        public static readonly int[] predictedRatingItems = { 101, 103, 106 };
+        public static readonly int[] predictedRatingItems = { 101 };
 
-        // @TODO: fix normalisation
         // @TODO: fix prediction
         // @TODO: ask: why / when to weighten similarities?
 
@@ -28,11 +27,11 @@ namespace INFDTA01_1
 			var userItems = Import.DoImport();
 
             // pop our target user
-            userItems.TryGetValue(targetUserId, out SortedDictionary<int, float> targetUser);
+            userItems.TryGetValue(targetUserId, out SortedDictionary<int, double> targetUser);
             userItems.Remove(targetUserId);
 
 			// compute similarities
-            var context = new Context(new PearsonSimilarity());
+            var context = new Context(new EuclideanSimilarity());
 			var similarities = context.Compute(targetUser, userItems);
 
             // nearest neighbours
@@ -41,7 +40,7 @@ namespace INFDTA01_1
             // log
             Log.DoLog(nearestNeighbours);
 
-    //        // predicted item ratings
+            // predicted item ratings
     //        foreach (var predictedRatingItem in predictedRatingItems)
     //        {
 				//var predictedRating = PredictedRating.Compute(userItems, similarities, nearestNeighbours, predictedRatingItem);
