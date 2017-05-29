@@ -24,7 +24,7 @@ namespace INFDTA01_1.Assignment.PartOne
 
             var strategies = new Dictionary<string, SimilarityInterface>();
             strategies.Add("Pearson", new PearsonSimilarity());
-            //strategies.Add("Cosine", new CosineSimilarity());
+            strategies.Add("Cosine", new CosineSimilarity());
             strategies.Add("Euclidean", new EuclideanSimilarity());
 
             foreach (var strategy in strategies)
