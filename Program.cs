@@ -14,7 +14,8 @@ namespace INFDTA01_1
         public const int nearestNeighboursLimit = 3;
         public static readonly int[] predictedRatingItems = { 101, 103, 106 };
 
-        // @TODO: maintain unfiltered userItems for prediction
+        // @TODO: fix normalisation
+        // @TODO: fix prediction
         // @TODO: ask: why / when to weighten similarities?
 
 		/// <summary>
@@ -31,7 +32,7 @@ namespace INFDTA01_1
             userItems.Remove(targetUserId);
 
 			// compute similarities
-			var context = new Context(new PearsonSimilarity());
+            var context = new Context(new PearsonSimilarity());
 			var similarities = context.Compute(targetUser, userItems);
 
             // nearest neighbours
