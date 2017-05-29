@@ -41,6 +41,10 @@
     <Compile Include="Strategy\Similarity\CosineSimilarity.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Helpers\Normalizer.cs" />
+    <Compile Include="Strategy\Similarity\ManhattanSimilarity.cs" />
+    <Compile Include="Strategy\Similarity\EuclideanSimilarity.cs" />
+    <Compile Include="Helpers\NearestNeighbours.cs" />
+    <Compile Include="Helpers\PredictedRating.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />

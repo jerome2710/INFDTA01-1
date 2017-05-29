@@ -3,13 +3,16 @@ using System.Collections.Generic;
 
 namespace INFDTA01_1.Strategy.Similarity
 {
-	public class CosineSimilarity : SimilarityInterface
-	{
-		public CosineSimilarity()
-		{}
+    public class ManhattanSimilarity : SimilarityInterface
+    {
+        public ManhattanSimilarity()
+        {
+        }
 
 		public SortedDictionary<int, double> Compute(SortedDictionary<int, float> targetUser, SortedDictionary<int, SortedDictionary<int, float>> userItems)
 		{
+			// @TODO: do not forget 1/1+d to get the similarity
+
 			throw new NotImplementedException();
 		}
     }

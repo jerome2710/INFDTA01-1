@@ -10,7 +10,7 @@ namespace INFDTA01_1.Strategy.Similarity
 		public PearsonSimilarity()
 		{}
 
-		public SortedDictionary<int, double> compute(SortedDictionary<int, float> targetUser, SortedDictionary<int, SortedDictionary<int, float>> userItems)
+		public SortedDictionary<int, double> Compute(SortedDictionary<int, float> targetUser, SortedDictionary<int, SortedDictionary<int, float>> userItems)
 		{
 			// make sure all users have ranked the same products
 			Normalizer normalizer = new Normalizer();

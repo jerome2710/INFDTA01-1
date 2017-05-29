@@ -9,7 +9,7 @@ namespace INFDTA01_1.Helper
 		/// Logs the result.
 		/// </summary>
 		/// <param name="resultSet">Result set.</param>
-		public static void DoLog(SortedDictionary<int, double> resultSet)
+		public static void DoLog(Dictionary<int, double> resultSet)
 		{
 			foreach (var result in resultSet)
 			{

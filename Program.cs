@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using INFDTA01_1.Helper;
 using INFDTA01_1.Strategy.Similarity;
@@ -9,6 +10,12 @@ namespace INFDTA01_1
 	{
 		public const string ImportFilePath = "Assets/userItem.data";
 		public const int targetUserId = 7;
+        public const float similarityThreshold = 0.35f;
+        public const int nearestNeighboursLimit = 3;
+        public static readonly int[] predictedRatingItems = { 101, 103, 106 };
+
+        // @TODO: maintain unfiltered userItems for prediction
+        // @TODO: ask: why / when to weighten similarities?
 
 		/// <summary>
 		/// The entry point of the program, where the program control starts and ends.
@@ -19,17 +26,26 @@ namespace INFDTA01_1
 			// import the dataset
 			var userItems = Import.DoImport();
 
-			// pop our target user
-			SortedDictionary<int, float> targetUser;
-			userItems.TryGetValue(targetUserId, out targetUser);
-			userItems.Remove(targetUserId);
+            // pop our target user
+            userItems.TryGetValue(targetUserId, out SortedDictionary<int, float> targetUser);
+            userItems.Remove(targetUserId);
 
-			// @TODO: do some magic here
+			// compute similarities
 			var context = new Context(new PearsonSimilarity());
-			var results = context.compute(targetUser, userItems);
+			var similarities = context.Compute(targetUser, userItems);
 
-			// log the result
-			Log.DoLog(results);
+            // nearest neighbours
+            var nearestNeighbours = NearestNeighbours.Compute(similarities, similarityThreshold, nearestNeighboursLimit);
+
+            // log
+            Log.DoLog(nearestNeighbours);
+
+    //        // predicted item ratings
+    //        foreach (var predictedRatingItem in predictedRatingItems)
+    //        {
+				//var predictedRating = PredictedRating.Compute(userItems, similarities, nearestNeighbours, predictedRatingItem);
+				//Console.WriteLine("Predicted rating for user " + targetUserId + " on item " + predictedRatingItem + ": " + predictedRating);
+            //}
 		}
 	}
 }

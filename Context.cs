@@ -22,9 +22,9 @@ namespace INFDTA01_1
 		/// <summary>
 		/// Compute the similarity using the interface.
 		/// </summary>
-		public SortedDictionary<int, double> compute(SortedDictionary<int, float> targetUser, SortedDictionary<int, SortedDictionary<int, float>> userItems)
+		public SortedDictionary<int, double> Compute(SortedDictionary<int, float> targetUser, SortedDictionary<int, SortedDictionary<int, float>> userItems)
 		{
-            return this._similarityInterface.compute(targetUser, userItems);
+            return this._similarityInterface.Compute(targetUser, userItems);
 		}
 	}
 }
