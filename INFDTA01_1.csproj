@@ -45,12 +45,18 @@
     <Compile Include="Strategy\Similarity\EuclideanSimilarity.cs" />
     <Compile Include="Helper\NearestNeighbours.cs" />
     <Compile Include="Helper\PredictedRating.cs" />
+    <Compile Include="Assignment\PartOne\AssignmentOne.cs" />
+    <Compile Include="Assignment\PartOne\Asserter.cs" />
+    <Compile Include="Assignment\PartOne\AssignmentTwo.cs" />
+    <Compile Include="Assignment\PartOne\AssignmentThree.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
     <Folder Include="Helper\" />
     <Folder Include="Strategy\" />
     <Folder Include="Strategy\Similarity\" />
+    <Folder Include="Assignment\" />
+    <Folder Include="Assignment\PartOne\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\userItem.data">

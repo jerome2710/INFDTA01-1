@@ -11,9 +11,9 @@ namespace INFDTA01_1.Strategy.Similarity
         {
         }
 
-		public SortedDictionary<int, double> Compute(SortedDictionary<int, double> targetUser, SortedDictionary<int, SortedDictionary<int, double>> userItems)
+		public SortedDictionary<int, double> Compute(SortedDictionary<int, SortedDictionary<int, double>> userItems, SortedDictionary<int, double> targetUser)
 		{
-			var results = new SortedDictionary<int, double>();
+            var results = new SortedDictionary<int, double>();
 
 			foreach (var userItem in userItems)
 			{

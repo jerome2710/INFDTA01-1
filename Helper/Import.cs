@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace INFDTA01_1.Helper
 {
@@ -13,8 +14,6 @@ namespace INFDTA01_1.Helper
 		///
 		public static SortedDictionary<int, SortedDictionary<int, double>> DoImport()
 		{
-			System.Console.WriteLine("Importing data-set...");
-
 			var userItems = new SortedDictionary<int, SortedDictionary<int, double>>();
 
 			var lines = System.IO.File.ReadAllLines(ImportFilePath);

@@ -8,44 +8,14 @@ namespace INFDTA01_1
 {
 	class MainClass
 	{
-		public const string ImportFilePath = "Assets/userItem.data";
-		public const int targetUserId = 4;
-        public const float similarityThreshold = 0.35f;
-        public const int nearestNeighboursLimit = 3;
-        public static readonly int[] predictedRatingItems = { 101 };
-
         // @TODO: fix prediction
         // @TODO: ask: why / when to weighten similarities?
-
-		/// <summary>
-		/// The entry point of the program, where the program control starts and ends.
-		/// </summary>
-		/// <param name="args">The command-line arguments.</param>
 		public static void Main(string[] args)
 		{
-			// import the dataset
-			var userItems = Import.DoImport();
-
-            // pop our target user
-            userItems.TryGetValue(targetUserId, out SortedDictionary<int, double> targetUser);
-            userItems.Remove(targetUserId);
-
-			// compute similarities
-            var context = new Context(new EuclideanSimilarity());
-			var similarities = context.Compute(targetUser, userItems);
-
-            // nearest neighbours
-            var nearestNeighbours = NearestNeighbours.Compute(similarities, similarityThreshold, nearestNeighboursLimit);
-
-            // log
-            Log.DoLog(nearestNeighbours);
-
-            // predicted item ratings
-    //        foreach (var predictedRatingItem in predictedRatingItems)
-    //        {
-				//var predictedRating = PredictedRating.Compute(userItems, similarities, nearestNeighbours, predictedRatingItem);
-				//Console.WriteLine("Predicted rating for user " + targetUserId + " on item " + predictedRatingItem + ": " + predictedRating);
-            //}
+            // run assignments
+            Assignment.PartOne.AssignmentOne.Run();
+            Assignment.PartOne.AssignmentTwo.Run();
+            Assignment.PartOne.AssignmentThree.Run();
 		}
 	}
 }
