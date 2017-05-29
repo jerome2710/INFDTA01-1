@@ -8,8 +8,6 @@ namespace INFDTA01_1
 {
 	class MainClass
 	{
-        // @TODO: fix prediction
-        // @TODO: ask: why / when to weighten similarities?
 		public static void Main(string[] args)
 		{
             // run assignments

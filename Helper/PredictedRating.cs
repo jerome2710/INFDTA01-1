@@ -31,6 +31,10 @@ namespace INFDTA01_1.Helper
             var denominator = 0.0;
             foreach (var nearestNeighbour in nearestNeighbours)
             {
+                if (!userItems[nearestNeighbour.Key].ContainsKey(predictedRatingItem)) {
+                    continue;
+                }
+
                 numerator += userItems[nearestNeighbour.Key][predictedRatingItem] * similarities[nearestNeighbour.Key];
                 denominator += similarities[nearestNeighbour.Key];
             }

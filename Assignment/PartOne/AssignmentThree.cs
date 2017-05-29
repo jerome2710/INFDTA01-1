@@ -30,14 +30,14 @@ namespace INFDTA01_1.Assignment.PartOne
 			// nearest neighbours
 			var nearestNeighbours = NearestNeighbours.Compute(similarities, similarityThreshold, nearestNeighboursLimit);
 
-			// predicted item ratings
-            //foreach (var predictedRatingItem in predictedRatingItems)
-            //{
-            //    var predictedRating = PredictedRating.Compute(userItems, similarities, nearestNeighbours, predictedRatingItem);
-            //    Console.WriteLine("Predicted rating for user " + targetUserId + " on item " + predictedRatingItem + ": " + predictedRating);
-            //}
+            // predicted item ratings
+            var predictedRatings = new SortedDictionary<int, double>();
+            foreach (var predictedRatingItem in predictedRatingItems)
+            {
+                predictedRatings.Add(predictedRatingItem, PredictedRating.Compute(userItems, similarities, nearestNeighbours, predictedRatingItem));
+            }
 
-			//Asserter.AssignmentTwo(sortedNearestNeighbours, strategy.Key);
+            Asserter.AssignmentThree(predictedRatings);
 		}
 	}
 }
