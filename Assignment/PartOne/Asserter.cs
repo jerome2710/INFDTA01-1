@@ -2,42 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace INFDTA01_1.Assignment.PartOne
-{
-    public static class Asserter
-    {
-        public static void Pass(string description)
-        {
+namespace INFDTA01_1.Assignment.PartOne {
+    
+    public static class Asserter {
+        
+        public static void Pass(string description) {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(description);
         }
 
-        public static void Fail(string description)
-        {
+        public static void Fail(string description) {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(description);
         }
 
-        public static void AssignmentOne(SortedDictionary<int, double> similarities)
-        {
+        public static void AssignmentOne(SortedDictionary<int, double> similarities) {
             similarities.TryGetValue(4, out double answer);
 
-            if (answer != 1.0)
-            {
+            if (answer != 1.0) {
                 Fail("Assignment 1: failed!");
-            }
-            else
-            {
+            } else {
                 Pass("Assignment 1: success!");
             }
         }
 
-        public static void AssignmentTwo(SortedDictionary<int, double> similarities, string similarity)
-        {
+        public static void AssignmentTwo(SortedDictionary<int, double> similarities, string similarity) {
             var answer = new SortedDictionary<int, double>();
 
-            switch (similarity)
-            {
+            switch (similarity) {
                 case "Pearson":
                     answer.Add(1, 0.99124070716193);
                     answer.Add(5, 0.924473451641905);
@@ -58,18 +50,14 @@ namespace INFDTA01_1.Assignment.PartOne
             if (
                 similarities.Keys.Count == answer.Keys.Count &&
                 similarities.Keys.All(k => answer.ContainsKey(k) && answer[k].ToString() == similarities[k].ToString())
-            )
-            {
+            ) {
                 Pass("Assignment 2: " + similarity + " success!");
-            }
-            else
-            {
+            } else {
                 Fail("Assignment 2: " + similarity + " failed!");
             }
         }
 
-        public static void AssignmentThree(SortedDictionary<int, double> predictedRatings)
-        {
+        public static void AssignmentThree(SortedDictionary<int, double> predictedRatings) {
             var answer = new SortedDictionary<int, double>();
             answer.Add(101, 2.741286897472);
             answer.Add(103, 2.67090274535989);
@@ -78,51 +66,40 @@ namespace INFDTA01_1.Assignment.PartOne
             if (
                 predictedRatings.Keys.Count == answer.Keys.Count &&
                 predictedRatings.Keys.All(k => answer.ContainsKey(k) && answer[k].ToString() == predictedRatings[k].ToString())
-            )
-            {
+            ) {
                 Pass("Assignment 3: success!");
-            }
-            else
-            {
+            } else {
                 Fail("Assignment 3: failed!");
             }
         }
 
-        public static void AssignmentFour(SortedDictionary<int, double> predictedRatings)
-		{
-			var answer = new SortedDictionary<int, double>();
-			answer.Add(101, 2.63284325835078);
+        public static void AssignmentFour(SortedDictionary<int, double> predictedRatings) {
+            var answer = new SortedDictionary<int, double>();
+            answer.Add(101, 2.63284325835078);
 
-			if (
-				predictedRatings.Keys.Count == answer.Keys.Count &&
-				predictedRatings.Keys.All(k => answer.ContainsKey(k) && answer[k].ToString() == predictedRatings[k].ToString())
-			)
-			{
-				Pass("Assignment 4: success!");
-			}
-			else
-			{
-				Fail("Assignment 4: failed!");
-			}
-		}
+            if (
+                predictedRatings.Keys.Count == answer.Keys.Count &&
+                predictedRatings.Keys.All(k => answer.ContainsKey(k) && answer[k].ToString() == predictedRatings[k].ToString())
+            ) {
+                Pass("Assignment 4: success!");
+            } else {
+                Fail("Assignment 4: failed!");
+            }
+        }
 
-		public static void AssignmentFive(SortedDictionary<int, double> predictedRatings)
-		{
-			var answer = new SortedDictionary<int, double>();
-			answer.Add(101, 2.757178);
+        public static void AssignmentFive(SortedDictionary<int, double> predictedRatings) {
+            var answer = new SortedDictionary<int, double>();
+            answer.Add(101, 2.757178);
             answer.Add(103, 2.676184);
 
-			if (
-				predictedRatings.Keys.Count == answer.Keys.Count &&
-				predictedRatings.Keys.All(k => answer.ContainsKey(k) && answer[k].ToString() == predictedRatings[k].ToString())
-			)
-			{
-				Pass("Assignment 5: success!");
-			}
-			else
-			{
-				Fail("Assignment 5: failed!");
-			}
-		}
+            if (
+                predictedRatings.Keys.Count == answer.Keys.Count &&
+                predictedRatings.Keys.All(k => answer.ContainsKey(k) && answer[k].ToString() == predictedRatings[k].ToString())
+            ) {
+                Pass("Assignment 5: success!");
+            } else {
+                Fail("Assignment 5: failed!");
+            }
+        }
     }
 }

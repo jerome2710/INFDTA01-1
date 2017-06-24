@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,6 +52,12 @@
     <Compile Include="Assignment\PartOne\AssignmentFour.cs" />
     <Compile Include="Assignment\PartOne\AssignmentFive.cs" />
     <Compile Include="Assignment\PartOne\AssignmentSix.cs" />
+    <Compile Include="Assignment\PartTwo\Asserter.cs" />
+    <Compile Include="Assignment\PartTwo\AssignmentOne.cs" />
+    <Compile Include="Helper\Deviations.cs" />
+    <Compile Include="Helper\SlopeOne.cs" />
+    <Compile Include="Assignment\PartTwo\AssignmentTwo.cs" />
+    <Compile Include="DataType\Matrix.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
@@ -60,6 +66,8 @@
     <Folder Include="Strategy\Similarity\" />
     <Folder Include="Assignment\" />
     <Folder Include="Assignment\PartOne\" />
+    <Folder Include="Assignment\PartTwo\" />
+    <Folder Include="DataType\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\userItem.data">
