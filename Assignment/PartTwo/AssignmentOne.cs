@@ -28,8 +28,6 @@ namespace INFDTA01_1.Assignment.PartTwo {
             var frequencies = new Matrix<int>(itemCount, itemCount);
             Deviations.Compute(userItems, itemCount, out deviations, out frequencies);
 
-
-
             // user A
             var targetUserAPredictions = new List<double>();
 			userItems.TryGetValue(targetUserAId, out SortedDictionary<int, double> targetUserA);

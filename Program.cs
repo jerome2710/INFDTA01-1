@@ -15,13 +15,14 @@ namespace INFDTA01_1
             Assignment.PartOne.AssignmentFour.Run();
             Assignment.PartOne.AssignmentFive.Run();
             //Assignment.PartOne.AssignmentSix.Run();
+            Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("\tAssignment 6: failed! (not implemented)");
 
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("\n Part Two: Item-Item \n");
 
             Assignment.PartTwo.AssignmentOne.Run();
             Assignment.PartTwo.AssignmentTwo.Run();
-            //Assignment.PartTwo.AssignmentThree.Run();
+            Assignment.PartTwo.AssignmentThree.Run();
 		}
 	}
 }

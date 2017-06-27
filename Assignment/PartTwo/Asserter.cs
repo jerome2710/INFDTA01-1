@@ -8,12 +8,12 @@ namespace INFDTA01_1.Assignment.PartTwo {
         
         public static void Pass(string description) {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(description);
+            Console.WriteLine("\t" + description);
         }
 
         public static void Fail(string description) {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(description);
+            Console.WriteLine("\t" + description);
         }
 
         public static void AssignmentOne(List<double> targetUserAPredictions, List<double> targetUserBPredictions) {
@@ -79,5 +79,23 @@ namespace INFDTA01_1.Assignment.PartTwo {
 				Fail("Assignment 2: failed!");
 			}
 		}
+
+        public static void AssignmentThree(SortedDictionary<int, double> targetUserPredictions) {
+            var answer = new SortedDictionary<int, double>();
+            answer.Add(1599, 5.6);
+            answer.Add(1536, 5.38461538461539);
+            answer.Add(1449, 5.22916666666667);
+            answer.Add(1500, 5.20512820512821);
+            answer.Add(1452, 5.18918918918919);
+
+			if (
+				targetUserPredictions.Keys.Count == answer.Keys.Count &&
+				targetUserPredictions.Keys.All(k => answer.ContainsKey(k) && answer[k].ToString() == targetUserPredictions[k].ToString())
+			) {
+				Pass("Assignment 3: success!");
+			} else {
+				Fail("Assignment 3: failed!");
+			}
+        }
     }
 }

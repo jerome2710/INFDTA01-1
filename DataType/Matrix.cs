@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace INFDTA01_1.DataType {
 
@@ -15,24 +16,28 @@ namespace INFDTA01_1.DataType {
         public int NumberOfRows { get { return index_list.Count; } }
         public int NumberOfColumns { get; private set; }
 
+		/// <summary>Create a sparse matrix with a given number of rows</summary>
+		/// <param name="num_rows">the number of rows</param>
+		/// <param name="num_cols">the number of columns</param>
+		public Matrix(int num_rows, int num_cols) {
+			for (int i = 0; i < num_rows; i++) {
+				index_list.Add(new List<int>());
+				value_list.Add(new List<T>());
+			}
+
+			NumberOfColumns = num_cols;
+		}
+
         /// <summary>Get a row of the matrix</summary>
         /// <param name="x">the row ID</param>
         public List<int> this[int x] {
             get {
-                return index_list[x];
-            }
-        }
+                if (this.Contains(x)) {
+                    return index_list[x];
+                }
 
-        /// <summary>Create a sparse matrix with a given number of rows</summary>
-        /// <param name="num_rows">the number of rows</param>
-        /// <param name="num_cols">the number of columns</param>
-        public Matrix(int num_rows, int num_cols) {
-            for (int i = 0; i < num_rows; i++) {
-                index_list.Add(new List<int>());
-                value_list.Add(new List<T>());
+                return new List<int>();
             }
-
-            NumberOfColumns = num_cols;
         }
 
         /// <summary>Access the elements of the sparse matrix</summary>
@@ -64,6 +69,13 @@ namespace INFDTA01_1.DataType {
                     value_list[x].Insert(new_index, value);
                 }
             }
+        }
+
+        /// <summary>Check whether the index_list contains x</summary>
+        /// <returns>Boolean if index exists</returns>
+        /// <param name="x">The index</param>
+        public bool Contains(int x) {
+            return index_list.ElementAtOrDefault(x) != null;
         }
     }
 }

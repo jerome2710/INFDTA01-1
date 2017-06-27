@@ -58,6 +58,7 @@
     <Compile Include="Helper\SlopeOne.cs" />
     <Compile Include="Assignment\PartTwo\AssignmentTwo.cs" />
     <Compile Include="DataType\Matrix.cs" />
+    <Compile Include="Assignment\PartTwo\AssignmentThree.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />

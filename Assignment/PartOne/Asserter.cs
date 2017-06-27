@@ -8,12 +8,12 @@ namespace INFDTA01_1.Assignment.PartOne {
         
         public static void Pass(string description) {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(description);
+            Console.WriteLine("\t" + description);
         }
 
         public static void Fail(string description) {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(description);
+            Console.WriteLine("\t" + description);
         }
 
         public static void AssignmentOne(SortedDictionary<int, double> similarities) {
